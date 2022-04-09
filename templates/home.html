@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<!-- 
+    <div>
+    <div class="container-fluid bg-secondary">
+        
+        <div class="container">
+            <div class="row pb-4 pt-4">
+                <div class="col display-1 text-light" >
+                    Predictivo Offline para Planta
+                </div>
+                <div class="col">
+                    <img src="{% static 'imagenes/pepsi2.jpg' %}" class="img-fluid opacity-25" alt="My image">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+-->
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{% static 'imagenes/pepsi.jpg' %}" class="d-block mx-lg-auto img-thumbnail" alt="Bootstrap Themes" width="700"
+                height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Predictivo Offline de Planta</h1>
+            <p class="lead">Base de datos para el respaldo y análisis de datos de predictivo online tomados con ultrasonido y vibraciones.
+                Análisis de tendencias en todos los equipos de los sectores productivos de planta para mejorar la confiabilidad de nuestros
+                equipos y lograr las metas de producción.
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Login</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Buscar Equipo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
