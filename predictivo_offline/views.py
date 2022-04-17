@@ -84,7 +84,7 @@ def mediciones(request):
 
 def arbolEquipos(request):
     miniplantas = MiniPlanta.objects.all()
-    sectores = miniplantas.sector_set.all()
+    sectores = Sector.objects.all()
 
     context = {'miniplantas' : miniplantas, 'sectores': sectores}
     return render(request, 'arbol_equipos.html', context)
