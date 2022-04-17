@@ -1,6 +1,7 @@
 from enum import auto
 from pickle import TRUE
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -35,6 +36,7 @@ class Medicion(models.Model):
     val_vibracion = models.IntegerField(null=TRUE, blank=TRUE)
     val_ultSonido = models.IntegerField(null=TRUE, blank=TRUE)
     fechaMedicion = models.DateTimeField(auto_now=TRUE)
+    usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=TRUE)
 
     def __str__(self):
         return "{} - {}".format(self.equipo, self.fechaMedicion)
