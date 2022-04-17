@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<div class="container m-5">
+        {% for miniplanta in miniplantas %}
+
+        <div>
+            {{miniplanta.nombre}}
+        </div>
+        <div>
+            {% for sector in sectores %}
+            <p>
+                {{sector.nombre}}
+            </p>
+            {% endfor %}
+        </div>
+
+
+        {% endfor %}
+</div>
+
+
+{% endblock %}

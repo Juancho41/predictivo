@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from .models import MiniPlanta, Sector, Equipo, Medicion
 
 # Create your views here.
 
@@ -79,3 +80,11 @@ def mediciones(request):
 
     context = {'form' : form}
     return render(request, 'registrar_med.html', context)
+
+
+def arbolEquipos(request):
+    miniplantas = MiniPlanta.objects.all()
+    sectores = miniplantas.sector_set.all()
+
+    context = {'miniplantas' : miniplantas, 'sectores': sectores}
+    return render(request, 'arbol_equipos.html', context)

@@ -11,7 +11,7 @@
           <a class="nav-link" aria-current="page" href="#">Como utilizar?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Buscar Equipo</a>
+          <a class="nav-link" href="{% url 'arbol_equipos' %}">Buscar Equipos</a>
         </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item">
