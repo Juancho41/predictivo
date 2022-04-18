@@ -3,22 +3,47 @@
 
 {% block content %}
 
-<div class="container m-5">
-        {% for miniplanta in miniplantas %}
+<div class="container m-5 list-group ">
+    <div class="row">
+        <div class="col-4 align-self-center">
 
-        <div>
-            {{miniplanta.nombre}}
-        </div>
-        <div>
-            {% for sector in sectores %}
-            <p>
-                {{sector.nombre}}
-            </p>
+            {% for miniplanta in miniplantas %}
+
+            <div class="list-group-item border m-2 h4">
+                {{miniplanta.nombre}}
+
+                <div class="list-group-item list-group-item-primary h5">
+
+                    {% for sector in sectores %}
+
+                    {% if miniplanta.nombre == sector.miniPlanta.nombre %}
+                    <div class="mb-3">
+                        {{sector.nombre}}
+
+                        <div>
+                            {% for equipo in equipos %}
+                            {% if sector.nombre == equipo.sector.nombre %}
+                            <div class="list-group-item h6">
+                                <a href="/mediciones/{{equipo.id}}" class="text-decoration-none text-reset">{{equipo.nombre}}</a>
+                                
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+
+
             {% endfor %}
+
         </div>
+    </div>
 
-
-        {% endfor %}
 </div>
 
 

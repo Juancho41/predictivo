@@ -68,8 +68,16 @@ def registerPage(request):
 def home(request):
     return render(request, 'home.html')
 
+
+
+
 @login_required(login_url='login')
-def mediciones(request):
+def mediciones(request, pk):
+
+    equipo = Equipo.objects.get(id=pk)
+
+
+
     form = MedicionForm()
 
     if request.method == 'POST':
@@ -78,13 +86,17 @@ def mediciones(request):
             form.save()
             return redirect('home')
 
-    context = {'form' : form}
+    context = {'form' : form, 'equipo' : equipo}
     return render(request, 'registrar_med.html', context)
+
+
+
 
 
 def arbolEquipos(request):
     miniplantas = MiniPlanta.objects.all()
     sectores = Sector.objects.all()
-
-    context = {'miniplantas' : miniplantas, 'sectores': sectores}
+    equipos = Equipo.objects.all()
+    
+    context = {'miniplantas' : miniplantas, 'sectores': sectores, 'equipos':equipos}
     return render(request, 'arbol_equipos.html', context)
