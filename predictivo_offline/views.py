@@ -76,8 +76,6 @@ def mediciones(request, pk):
 
     equipo = Equipo.objects.get(id=pk)
 
-
-
     form = MedicionForm()
 
     if request.method == 'POST':
